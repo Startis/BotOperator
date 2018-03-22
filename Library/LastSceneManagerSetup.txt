@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/RTS_Camera/Testing.unity
+- path: Assets/RTS_Camera/TestingBalad.unity
   isLoaded: 1
   isActive: 1
