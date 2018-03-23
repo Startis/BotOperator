@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraMovement.cs" />
+     <Compile Include="Assets\DragAndDrop.cs" />
      <Compile Include="Assets\FogOfWar\Script\EditorButtonAttribute.cs" />
      <Compile Include="Assets\FogOfWar\Script\FieldOfView.cs" />
      <Compile Include="Assets\FogOfWar\Script\FogCoverable.cs" />
