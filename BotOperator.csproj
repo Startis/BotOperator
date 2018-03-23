@@ -389,6 +389,8 @@
     <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
     <Compile Include="Assets\Script\ActiveBehaviour.cs" />
     <Compile Include="Assets\Script\DrawPath.cs" />
+    <Compile Include="Assets\Script\Enemy\AbstractEnemy.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyTurret.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\UnityExtender.cs" />
   </ItemGroup>

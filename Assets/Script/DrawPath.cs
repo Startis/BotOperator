@@ -10,6 +10,7 @@ public class DrawPath : ActiveBehaviour {
     public float speed = 10;
     private bool canDraw = false;
     private Tweener tweenerMove;
+    private Tweener tweenerRotate;
 
     protected void Awake()
     {
@@ -22,6 +23,7 @@ public class DrawPath : ActiveBehaviour {
         if (positions.Count > 0)
         {
             Debug.DrawRay(transform.position, positions[0] - transform.position, Color.red);
+            Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
         }
         for (int i = 0; i < positions.Count - 1; i++)
         {
@@ -29,10 +31,7 @@ public class DrawPath : ActiveBehaviour {
         }
 
 
-        if (GameManager.pause)
-        {
-            DrawPathMove();
-        }
+        DrawPathMove();
         base.Update();
     }
 
@@ -49,23 +48,38 @@ public class DrawPath : ActiveBehaviour {
                     switch (hit.collider.tag)
                     {
                         case "Ground":
-                            positions.Add(hit.point.WithY(1.5f));
+                            if(positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.5f), positions[positions.Count - 1]) > 0.3f)
+                                positions.Add(hit.point.WithY(1.5f));
                             break;
                         case "Wall":
-                            canDraw = false;
-                            MoveLine();
+                            LeftConditionDraw();
+                            break;
+                        case "Destructible":
+                            if(tag == "Player_Strong")
+                            {
+                                if (positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.5f), positions[positions.Count - 1]) > 0.3f)
+                                    positions.Add(hit.point.WithY(1.5f));
+                            }
+                            else
+                            {
+                                LeftConditionDraw();
+                            }
                             break;
                     }
                 }
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                canDraw = false;
-                MoveLine();
+                LeftConditionDraw();
             }
         }
     }
 
+    private void LeftConditionDraw()
+    {
+        canDraw = false;
+        MoveLine();
+    }
 
     private void MoveLine()
     {
@@ -80,36 +94,58 @@ public class DrawPath : ActiveBehaviour {
             tweenerMove = null;
             MoveLine();
         }).SetEase(Ease.Linear);
+        tweenerRotate = transform.DOLookAt(positions[0], Vector3.Distance(transform.position, positions[0]) / (speed * 2)).OnComplete(() =>
+        {
+            tweenerRotate = null;
+        });
     }
 
     private void OnMouseDown()
     {
         canDraw = true;
-        if(tweenerMove != null)
+        if (tweenerMove != null)
+        {
             tweenerMove.Kill();
+        }
+        if(tweenerRotate != null)
+        {
+            tweenerRotate.Kill();
+        }
         positions.Clear();
     }
 
     protected override void PauseTweener(bool isPause)
     {
-        if(tweenerMove == null)
+        if(tweenerMove != null)
         {
-            return;
-        }
-
-        if (isPause)
-        {
-            if (tweenerMove.IsPlaying())
+            if(isPause && tweenerMove.IsPlaying())
             {
                 tweenerMove.Pause();
-            }
-        }
-        else
-        {
-            if (!tweenerMove.IsPlaying())
+            }else if(!isPause && !tweenerMove.IsPlaying())
             {
                 tweenerMove.Play();
             }
+        }
+
+        if (tweenerRotate != null)
+        {
+            if (isPause && tweenerRotate.IsPlaying())
+            {
+                tweenerRotate.Pause();
+            }
+            else if (!isPause && !tweenerRotate.IsPlaying())
+            {
+                tweenerRotate.Play();
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision");
+        if(tag == "Player_Strong" && collision.gameObject.tag == "Destructible")
+        {
+            collision.gameObject.SetActive(false); // possible de remplacer par un collider desactiver et un changement de mesh
         }
     }
 }

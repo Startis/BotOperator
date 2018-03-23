@@ -7,6 +7,8 @@ TagManager:
   - target
   - Wall
   - Ground
+  - Player_Strong
+  - Destructible
   layers:
   - Default
   - TransparentFX
