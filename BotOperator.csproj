@@ -377,7 +377,10 @@
     <Compile Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\FogOfWar\Standard Assets\Utility\FollowTarget.cs" />
-    <Compile Include="Assets\PlayerManager.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -388,10 +391,15 @@
     <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
     <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
     <Compile Include="Assets\Script\ActiveBehaviour.cs" />
-    <Compile Include="Assets\Script\DrawPath.cs" />
     <Compile Include="Assets\Script\Enemy\AbstractEnemy.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyPatrol.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyTurret.cs" />
+    <Compile Include="Assets\Script\Enemy\Shot.cs" />
+    <Compile Include="Assets\Script\Enemy\ViewEnemy.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\Player\DrawPath.cs" />
+    <Compile Include="Assets\Script\Player\DrawPathNavMesh.cs" />
+    <Compile Include="Assets\Script\Player\PlayerManager.cs" />
     <Compile Include="Assets\Script\UnityExtender.cs" />
   </ItemGroup>
   <ItemGroup>

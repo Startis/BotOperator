@@ -4,9 +4,14 @@ using UnityEngine;
 
 public abstract class AbstractEnemy : MonoBehaviour {
 
-    protected float life;
-    protected float damage;
-    protected float speed;
-    protected float rangeShot;
-    protected float rangeCac;
+    public float life = 10;
+    public float damage = 3;
+    //public float speed;
+    public float rangeShot = 5;
+    public float rangeCac = 1;
+    protected bool isPlayerView = false;
+    protected PlayerManager playerAggro;
+    public GameObject ammo;
+
+    public abstract void PlayerInView(PlayerManager player);
 }
