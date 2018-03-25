@@ -6,6 +6,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	public static GameObject draggedItem;
+	private Vector3 screenPoint;
 
 	public void OnBeginDrag(PointerEventData eventData){
 		draggedItem = gameObject;
@@ -13,8 +14,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnDrag(PointerEventData eventData){
-		if (draggedItem != null)
-			draggedItem.transform.position += (Vector3)eventData.delta;	
+		if (draggedItem != null) {
+			//draggedItem.transform.position += (Vector3)eventData.delta;	
+			screenPoint = Input.mousePosition;
+			screenPoint.z = 100.0f; //distance of the plane from the camera
+			transform.position = Camera.main.ScreenToWorldPoint (screenPoint);
+		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData){
