@@ -34,8 +34,15 @@ public class EnemyTurret : AbstractEnemy {
     }
 
     // Update is called once per frame
-    void Update () {
+    protected override void Update () {
         Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
+        base.Update();
+        if (GameManager.pause)
+        {
+            agent.isStopped = true;
+            return;
+        }
+
         cooldownCac = Mathf.Max(0, cooldownCac - Time.deltaTime);
         cooldownShot = Mathf.Max(0, cooldownShot - Time.deltaTime);
 
@@ -76,7 +83,7 @@ public class EnemyTurret : AbstractEnemy {
                 {
                     cooldownShot = delayShot;
                     var shot = Instantiate(ammo, transform.position, Quaternion.identity).GetComponent<Shot>();
-                    shot.SetDirection(transform.forward);
+                    shot.SetDirection(transform.forward, Shot.Emetteur.enemy);
                 }
             }
         }
@@ -98,13 +105,31 @@ public class EnemyTurret : AbstractEnemy {
         }
     }
 
-    public override void PlayerInView(PlayerManager player)
+    public override void PlayerInView(PlayerController player)
     {
         if (playerAggro == null)
         {
             cooldownWaitViewPlayer = waitAfterViewPlayer;
             isPlayerView = true;
             playerAggro = player;
+        }
+    }
+
+    protected override void PauseTweener(bool isPause)
+    {
+        if (isPause)
+        {
+            if(tweenerRotate != null)
+            {
+                tweenerRotate.Pause();
+            }
+        }
+        else
+        {
+            if (tweenerRotate != null)
+            {
+                tweenerRotate.Play();
+            }
         }
     }
 }

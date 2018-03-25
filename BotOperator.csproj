@@ -399,7 +399,9 @@
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Player\DrawPath.cs" />
     <Compile Include="Assets\Script\Player\DrawPathNavMesh.cs" />
-    <Compile Include="Assets\Script\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Script\Player\PlayerController.cs" />
+    <Compile Include="Assets\Script\Player\PlayerUI.cs" />
+    <Compile Include="Assets\Script\Player\ViewPlayer.cs" />
     <Compile Include="Assets\Script\UnityExtender.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@ public class DrawPathNavMesh : ActiveBehaviour {
     private Tweener tweenerMove;
     private Tweener tweenerRotate;
     private NavMeshAgent agent;
+    public PlayerController playerManager { get; set; }
 
     protected void Awake()
     {

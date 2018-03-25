@@ -21,8 +21,7 @@ public class ViewEnemy : MonoBehaviour {
             float angle = Vector3.Angle(transform.position - other.transform.position, -transform.forward);
             if (angle <= coneView)
             {
-                Debug.Log("en vue");
-                self.PlayerInView(other.GetComponent<PlayerManager>());
+                self.PlayerInView(other.GetComponent<PlayerController>());
             }
         }
     }

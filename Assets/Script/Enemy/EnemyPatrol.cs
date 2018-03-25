@@ -32,9 +32,20 @@ public class EnemyPatrol : AbstractEnemy {
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
+        base.Update();
+        if (GameManager.pause)
+        {
+            agent.isStopped = true;
+            return;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
+
         cooldownCac = Mathf.Max(0, cooldownCac - Time.deltaTime);
         cooldownShot = Mathf.Max(0, cooldownShot - Time.deltaTime);
 
@@ -50,7 +61,6 @@ public class EnemyPatrol : AbstractEnemy {
             if (Vector3.Distance(playerAggro.transform.position, transform.position) > rangeShot)
             {
                 agent.SetDestination(playerAggro.transform.position);
-                agent.isStopped = false;
             }
             else
             {
@@ -71,7 +81,7 @@ public class EnemyPatrol : AbstractEnemy {
                 {
                     cooldownShot = delayShot;
                     var shot = Instantiate(ammo, transform.position, Quaternion.identity).GetComponent<Shot>();
-                    shot.SetDirection(transform.forward);
+                    shot.SetDirection(transform.forward, Shot.Emetteur.enemy);
                 }
             }
         }
@@ -98,7 +108,7 @@ public class EnemyPatrol : AbstractEnemy {
         }
     }
 
-    public override void PlayerInView(PlayerManager player)
+    public override void PlayerInView(PlayerController player)
     {
         if (playerAggro == null)
         {
@@ -106,5 +116,10 @@ public class EnemyPatrol : AbstractEnemy {
             isPlayerView = true;
             playerAggro = player;
         }
+    }
+
+    protected override void PauseTweener(bool isPause)
+    {
+        
     }
 }

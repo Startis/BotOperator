@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            pause = !pause;
-            iconPause.sprite = pause ? icon[0] : icon[1];
+            Pause();
         }
 	}
+
+    public void Pause()
+    {
+        pause = !pause;
+        iconPause.sprite = pause ? icon[0] : icon[1];
+    }
 }

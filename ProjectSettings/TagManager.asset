@@ -10,6 +10,7 @@ TagManager:
   - Player_Strong
   - Destructible
   - Shot
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Player
   - Destructible
   - View
-  - Shot
-  - 
+  - ShotEnemy
+  - ShotPlayer
   - 
   - 
   - 

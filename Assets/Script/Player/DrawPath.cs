@@ -11,6 +11,8 @@ public class DrawPath : ActiveBehaviour {
     private bool canDraw = false;
     private Tweener tweenerMove;
     private Tweener tweenerRotate;
+    public PlayerController playerManager { get; set; }
+    public bool isMoving { get { return tweenerMove != null && tweenerMove.IsPlaying(); } }
 
     protected void Awake()
     {
@@ -48,7 +50,7 @@ public class DrawPath : ActiveBehaviour {
                     switch (hit.collider.tag)
                     {
                         case "Ground":
-                            if(positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.5f), positions[positions.Count - 1]) > 0.3f)
+                            if(positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.583333f), positions[positions.Count - 1]) > 0.3f)
                                 positions.Add(hit.point.WithY(1.5f));
                             break;
                         case "Wall":
@@ -57,7 +59,7 @@ public class DrawPath : ActiveBehaviour {
                         case "Destructible":
                             if(tag == "Player_Strong")
                             {
-                                if (positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.5f), positions[positions.Count - 1]) > 0.3f)
+                                if (positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.583333f), positions[positions.Count - 1]) > 0.3f)
                                     positions.Add(hit.point.WithY(1.5f));
                             }
                             else
@@ -142,7 +144,6 @@ public class DrawPath : ActiveBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision");
         if(tag == "Player_Strong" && collision.gameObject.tag == "Destructible")
         {
             collision.gameObject.SetActive(false); // possible de remplacer par un collider desactiver et un changement de mesh
