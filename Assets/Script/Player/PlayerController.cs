@@ -22,6 +22,8 @@ public class PlayerController : ActiveBehaviour {
     public AbstractEnemy enemySelected { get; set; }
     public AgressiveState agressiveState = AgressiveState.pacifism;
 
+    public int id = 0;
+
     //state player
     public float life = 100;
     public float rangeShot = 5;
@@ -35,30 +37,37 @@ public class PlayerController : ActiveBehaviour {
     private bool canPunch { get { return cooldownPunch == 0; } }
     public float damagePunch = 3;
 
+    public GameObject[] skills;
+
     private void Awake()
     {
-        (playerUI = GetComponent<PlayerUI>()).playerController = this;
+        playerUI = FindObjectOfType<PlayerUI>();
         (playerDrawPath = GetComponent<DrawPath>()).playerManager = this;
         (viewPlayer = GetComponentInChildren<ViewPlayer>()).playerManager = this;
 
         agent = GetComponent<NavMeshAgent>();
 
-        switch (agressiveState)
+        if (id == 0)
         {
-            case AgressiveState.pacifism:
-                playerUI.pacifism.image.color = Color.red;
-                break;
-            case AgressiveState.inView:
-                playerUI.inView.image.color = Color.red;
-                break;
-            case AgressiveState.agressif:
-                playerUI.agressif.image.color = Color.red;
-                break;
+            switch (agressiveState)
+            {
+                case AgressiveState.pacifism:
+                    playerUI.pacifism.image.color = Color.red;
+                    break;
+                case AgressiveState.inView:
+                    playerUI.inView.image.color = Color.red;
+                    break;
+                case AgressiveState.agressif:
+                    playerUI.agressif.image.color = Color.red;
+                    break;
+            }
         }
     }
 
 
     protected override void Update () {
+        Skill();
+
         base.Update();
         if (GameManager.pause)
         {
@@ -102,7 +111,8 @@ public class PlayerController : ActiveBehaviour {
     public void TakeDamage(float damage)
     {
         life = Mathf.Max(0, life - damage);
-        playerUI.sliderHp.value = life;
+        if(playerUI.currentIdPlayer == id)
+            playerUI.sliderHp.value = life;
     }
 
     public void Attack()
@@ -132,8 +142,34 @@ public class PlayerController : ActiveBehaviour {
         }
     }
 
+    private void Skill()
+    {
+        if (Input.GetMouseButtonDown(1) && playerDrawPath.positions.Count > 0)
+        {
+            Ray rayPos = playerDrawPath.cameraDraw.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(rayPos, out hit))
+            {
+                foreach(Vector3 v in playerDrawPath.positions)
+                {
+                    if(Vector3.Distance(v, hit.point.WithY(1.583333f)) <= 1)
+                    {
+                        var s = Instantiate(skills[0], hit.point.WithY(1.583333f), Quaternion.identity);
+                        Destroy(s, 3);
+                    }
+                }
+            }
+        }
+    }
+
     protected override void PauseTweener(bool isPause)
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        playerUI.ChangeRobotState(id, agressiveState);
+        playerUI.sliderHp.value = life;
     }
 }

@@ -5,8 +5,8 @@ using DG.Tweening;
 
 public class DrawPath : ActiveBehaviour {
 
-    public Camera camera;
-    private List<Vector3> positions;
+    public Camera cameraDraw;
+    public List<Vector3> positions { get; private set; }
     public float speed = 10;
     private bool canDraw = false;
     private Tweener tweenerMove;
@@ -44,7 +44,7 @@ public class DrawPath : ActiveBehaviour {
             if (Input.GetMouseButton(0))
             {
                 //positions.Add(camera.ScreenToWorldPoint(Input.mousePosition).WithY(1));
-                Ray rayPos = camera.ScreenPointToRay(Input.mousePosition);
+                Ray rayPos = cameraDraw.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(rayPos, out hit)) {
                     switch (hit.collider.tag)

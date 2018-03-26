@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class DrawPathNavMesh : ActiveBehaviour {
 
     public Camera camera;
-    private List<Vector3> positions;
+    public List<Vector3> positions { get; private set; }
     public float speed = 10;
     private bool canDraw = false;
     private Tweener tweenerMove;
