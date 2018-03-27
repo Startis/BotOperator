@@ -7,10 +7,15 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public static GameObject draggedItem;
 	private Vector3 screenPoint;
+	public bool changeParent;
+	public GameObject newParent;
+
 
 	public void OnBeginDrag(PointerEventData eventData){
 		draggedItem = gameObject;
 		draggedItem.transform.SetAsLastSibling();
+		if (changeParent == true)
+			draggedItem.transform.parent = newParent.transform;
 	}
 
 	public void OnDrag(PointerEventData eventData){

@@ -113,6 +113,7 @@
      <Compile Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
      <Compile Include="Assets\FogOfWar\Standard Assets\Utility\FollowTarget.cs" />
      <Compile Include="Assets\PlayerManager.cs" />
+     <Compile Include="Assets\presmanager.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
