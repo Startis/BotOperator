@@ -11,12 +11,14 @@ public class DrawPath : ActiveBehaviour {
     private bool canDraw = false;
     private Tweener tweenerMove;
     private Tweener tweenerRotate;
-    public PlayerController playerManager { get; set; }
+    public PlayerController playerController { get; set; }
     public bool isMoving { get { return tweenerMove != null && tweenerMove.IsPlaying(); } }
+    //private LineRenderer line;
 
     protected void Awake()
     {
         positions = new List<Vector3>();
+        //line = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -64,6 +66,8 @@ public class DrawPath : ActiveBehaviour {
                             }
                             else
                             {
+                                /*line.positionCount = positions.Count;
+                                line.SetPositions(positions.ToArray());*/
                                 LeftConditionDraw();
                             }
                             break;

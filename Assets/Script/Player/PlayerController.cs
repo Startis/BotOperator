@@ -37,13 +37,15 @@ public class PlayerController : ActiveBehaviour {
     private bool canPunch { get { return cooldownPunch == 0; } }
     public float damagePunch = 3;
 
+    public GameObject canvasSkill;
     public GameObject[] skills;
+    private Vector3 posSkill;
 
     private void Awake()
     {
         playerUI = FindObjectOfType<PlayerUI>();
-        (playerDrawPath = GetComponent<DrawPath>()).playerManager = this;
-        (viewPlayer = GetComponentInChildren<ViewPlayer>()).playerManager = this;
+        (playerDrawPath = GetComponent<DrawPath>()).playerController = this;
+        (viewPlayer = GetComponentInChildren<ViewPlayer>()).playerController = this;
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -154,9 +156,17 @@ public class PlayerController : ActiveBehaviour {
                 {
                     if(Vector3.Distance(v, hit.point.WithY(1.583333f)) <= 1)
                     {
-                        var s = Instantiate(skills[0], hit.point.WithY(1.583333f), Quaternion.identity);
-                        Destroy(s, 3);
+                        /*var s = Instantiate(skills[0], hit.point.WithY(1.583333f), Quaternion.identity);
+                        Destroy(s, 3);*/
+                        posSkill = hit.point.WithY(1.583333f);
+                        canvasSkill.transform.position = posSkill;
+                        canvasSkill.SetActive(true);
+                        return;
                     }
+                }
+                if (canvasSkill.activeInHierarchy)
+                {
+                    canvasSkill.SetActive(false);
                 }
             }
         }
@@ -171,5 +181,12 @@ public class PlayerController : ActiveBehaviour {
     {
         playerUI.ChangeRobotState(id, agressiveState);
         playerUI.sliderHp.value = life;
+    }
+
+    public void SkillInstanciate(int id)
+    {
+        canvasSkill.SetActive(false);
+        var s = Instantiate(skills[id], posSkill, Quaternion.identity);
+        Destroy(s, 3);
     }
 }
