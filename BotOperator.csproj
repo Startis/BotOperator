@@ -398,9 +398,11 @@
     <Compile Include="Assets\Script\Enemy\ViewEnemy.cs" />
     <Compile Include="Assets\Script\Manager\GameManager.cs" />
     <Compile Include="Assets\Script\Manager\PlayerManager.cs" />
+    <Compile Include="Assets\Script\Mine.cs" />
     <Compile Include="Assets\Script\Player\DrawPath.cs" />
     <Compile Include="Assets\Script\Player\DrawPathNavMesh.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
+    <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Script\Player\PlayerUI.cs" />
     <Compile Include="Assets\Script\Player\ViewPlayer.cs" />
     <Compile Include="Assets\Script\UnityExtender.cs" />

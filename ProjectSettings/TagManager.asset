@@ -11,6 +11,7 @@ TagManager:
   - Destructible
   - Shot
   - Enemy
+  - Mine
   layers:
   - Default
   - TransparentFX

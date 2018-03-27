@@ -152,5 +152,19 @@ public class DrawPath : ActiveBehaviour {
         {
             collision.gameObject.SetActive(false); // possible de remplacer par un collider desactiver et un changement de mesh
         }
+        else if (collision.gameObject.name.Contains("SkillSphere"))
+        {
+            playerController.UseSkill(2);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public void KillViewInMove()
+    {
+        if(tweenerRotate != null)
+        {
+            tweenerRotate.Kill();
+            tweenerRotate = null;
+        }
     }
 }

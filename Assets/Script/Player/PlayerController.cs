@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class PlayerController : ActiveBehaviour {
 
@@ -38,8 +39,10 @@ public class PlayerController : ActiveBehaviour {
     public float damagePunch = 3;
 
     public GameObject canvasSkill;
-    public GameObject[] skills;
+    public GameObject[] skillsSphere;
     private Vector3 posSkill;
+
+    private List<Delegate> skills;
 
     private void Awake()
     {
@@ -64,6 +67,8 @@ public class PlayerController : ActiveBehaviour {
                     break;
             }
         }
+
+        skills = new List<Delegate>(PlayerSkill.skills);
     }
 
 
@@ -186,7 +191,24 @@ public class PlayerController : ActiveBehaviour {
     public void SkillInstanciate(int id)
     {
         canvasSkill.SetActive(false);
-        var s = Instantiate(skills[id], posSkill, Quaternion.identity);
-        Destroy(s, 3);
+        var s = Instantiate(skillsSphere[id], posSkill, Quaternion.identity);
+    }
+
+    public void UseSkill(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                skills[id].DynamicInvoke(Vector3.left, playerDrawPath);
+                break;
+            case 1:
+                skills[id].DynamicInvoke(Vector3.zero);
+                break;
+            case 2:
+                skills[id].DynamicInvoke(transform.position);
+                break;
+            case 3:
+                break;
+        }
     }
 }
