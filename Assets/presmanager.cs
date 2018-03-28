@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class presmanager : MonoBehaviour {
 
-	public List<GameObject> slides;
+	public GameObject parentslides;
 	public int currentSlide;
-
+	public int nombreSlide;
+	public float movetime;
+	public float returnbegginingtime;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,29 +24,38 @@ public class presmanager : MonoBehaviour {
 	}
 
 	void UpdateSlide (){
-		for (int i = 0; i < slides.Count; i++)
-		{
-			slides [i].SetActive (false);
+		if (currentSlide < nombreSlide){
+			switch (currentSlide)
+			{
+			case 0:
+				parentslides.transform.DOLocalMoveX (0, returnbegginingtime, false);
+				Debug.Log("blabla");
+				break;
+			case 1:
+				parentslides.transform.DOLocalMoveX (-800, movetime, false);
+				Debug.Log("blabla1");
+				break;
+			case 2:
+				parentslides.transform.DOLocalMoveX (-2400, movetime, false);
+				Debug.Log("blabla2");
+				break;
+			case 3:
+				parentslides.transform.DOLocalMoveX (-4000, movetime, false);
+				Debug.Log("blabla3");
+				break;
+			case 4:
+				parentslides.transform.DOLocalMoveX (-5600, movetime, false);
+				Debug.Log ("blabla4");
+				break;
+			case 5:
+				parentslides.transform.DOLocalMoveX (-7200, movetime, false);
+				Debug.Log("blabla5");
+				break;
+			}
+		}else{
+			currentSlide = 0;
 		}
-		switch (currentSlide)
-		{
-		case 0:
-			slides [0].SetActive (true);
-			Debug.Log("blabla");
-			break;
-		case 1:
-			slides [1].SetActive (true);
-			Debug.Log("blabla1");
-			break;
-		case 2:
-			slides [2].SetActive (true);
-			Debug.Log("blabla2");
-			break;
-		case 3:
-			slides [3].SetActive (true);
-			Debug.Log("blabla3");
-			break;
-		}
+
 	}
 
 }

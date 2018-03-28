@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotOperator", "BotOperator.csproj", "{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotOperator.Editor", "BotOperator.Editor.csproj", "{73A5443E-1068-EA51-0AC6-04514154479E}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73A5443E-1068-EA51-0AC6-04514154479E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73A5443E-1068-EA51-0AC6-04514154479E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73A5443E-1068-EA51-0AC6-04514154479E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73A5443E-1068-EA51-0AC6-04514154479E}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
-=======
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
@@ -55,4 +27,3 @@ Global
 		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
->>>>>>> Stephane

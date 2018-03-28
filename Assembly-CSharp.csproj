@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraMovement.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
      <Compile Include="Assets\DragAndDrop.cs" />
      <Compile Include="Assets\FogOfWar\Script\EditorButtonAttribute.cs" />
      <Compile Include="Assets\FogOfWar\Script\FieldOfView.cs" />
@@ -112,7 +114,10 @@
      <Compile Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
      <Compile Include="Assets\FogOfWar\Standard Assets\Utility\FollowTarget.cs" />
-     <Compile Include="Assets\PlayerManager.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
      <Compile Include="Assets\presmanager.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
@@ -123,8 +128,25 @@
      <Compile Include="Assets\RTS_Camera\Demo\DemoScene.cs" />
      <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
      <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
+     <Compile Include="Assets\Script\ActiveBehaviour.cs" />
+     <Compile Include="Assets\Script\Enemy\AbstractEnemy.cs" />
+     <Compile Include="Assets\Script\Enemy\EnemyPatrol.cs" />
+     <Compile Include="Assets\Script\Enemy\EnemyTurret.cs" />
+     <Compile Include="Assets\Script\Enemy\Shot.cs" />
+     <Compile Include="Assets\Script\Enemy\ViewEnemy.cs" />
+     <Compile Include="Assets\Script\Manager\GameManager.cs" />
+     <Compile Include="Assets\Script\Manager\PlayerManager.cs" />
+     <Compile Include="Assets\Script\Mine.cs" />
+     <Compile Include="Assets\Script\Player\DrawPath.cs" />
+     <Compile Include="Assets\Script\Player\DrawPathNavMesh.cs" />
+     <Compile Include="Assets\Script\Player\PlayerController.cs" />
+     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
+     <Compile Include="Assets\Script\Player\PlayerUI.cs" />
+     <Compile Include="Assets\Script\Player\ViewPlayer.cs" />
+     <Compile Include="Assets\Script\UnityExtender.cs" />
      <Compile Include="Assets\UIManager.cs" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
      <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
@@ -134,6 +156,7 @@
      <None Include="Assets\FogOfWar\Script\ProjectorFogOfWar.shader" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
@@ -160,6 +183,7 @@
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
      <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
@@ -190,6 +214,7 @@
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\ProCore\ProBuilder\readme.txt" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
@@ -255,6 +280,21 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity3.1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>C:/Users/s.debank/Documents/BotOperator/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
