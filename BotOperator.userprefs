@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\presmanager.cs">
     <Files>
-      <File FileName="Assets\DragAndDrop.cs" Line="18" Column="55" />
-      <File FileName="Assets\presmanager.cs" Line="42" Column="10" />
+      <File FileName="Assets\DragAndDrop.cs" Line="1" Column="1" />
+      <File FileName="Assets\presmanager.cs" Line="50" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
