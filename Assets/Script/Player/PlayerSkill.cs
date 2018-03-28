@@ -7,7 +7,7 @@ public class PlayerSkill : MonoBehaviour {
 
     public static List<Delegate> skills;
 
-    private delegate void FixedView(Vector3 dir, DrawPath player);
+    private delegate void FixedView(DrawPath player);
     private delegate void Mortier(Vector3 position);
     private delegate void Mine(Vector3 position);
     private delegate void Perception(FieldOfView viewPlayer);
@@ -20,10 +20,9 @@ public class PlayerSkill : MonoBehaviour {
 
     private void Awake()
     {
-        FixedView fixedView = delegate (Vector3 dir, DrawPath player)
+        FixedView fixedView = delegate (DrawPath player)
         {
             player.KillViewInMove();
-            player.transform.forward = dir;
         };
 
         Mortier mortier = delegate (Vector3 position)

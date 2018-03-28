@@ -199,7 +199,7 @@ public class PlayerController : ActiveBehaviour {
         switch (id)
         {
             case 0:
-                skills[id].DynamicInvoke(Vector3.left, playerDrawPath);
+                skills[id].DynamicInvoke(playerDrawPath);
                 break;
             case 1:
                 skills[id].DynamicInvoke(Vector3.zero);
@@ -208,6 +208,7 @@ public class PlayerController : ActiveBehaviour {
                 skills[id].DynamicInvoke(transform.position);
                 break;
             case 3:
+                //skills[id].DynamicInvoke();
                 break;
         }
     }

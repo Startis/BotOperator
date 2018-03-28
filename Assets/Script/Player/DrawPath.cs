@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Text.RegularExpressions;
 
 public class DrawPath : ActiveBehaviour {
 
@@ -13,6 +14,10 @@ public class DrawPath : ActiveBehaviour {
     private Tweener tweenerRotate;
     public PlayerController playerController { get; set; }
     public bool isMoving { get { return tweenerMove != null && tweenerMove.IsPlaying(); } }
+
+    private bool isSkillView = false, useSkillView = false;
+    public float delaySkillView = 0.5f;
+    private Tweener tweenerSkillView = null;
     //private LineRenderer line;
 
     protected void Awake()
@@ -79,6 +84,28 @@ public class DrawPath : ActiveBehaviour {
                 LeftConditionDraw();
             }
         }
+
+        if (isSkillView && tweenerSkillView == null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray rayPos = cameraDraw.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(rayPos, out hit))
+                {
+                    tweenerSkillView = transform.DOLookAt(hit.point, delaySkillView).OnComplete(() =>
+                    {
+                        isSkillView = false;
+                        useSkillView = true;
+                        tweenerSkillView = null;
+                        if (tweenerMove != null)
+                        {
+                            tweenerMove.Play();
+                        }
+                    });
+                }
+            }
+        }
     }
 
     private void LeftConditionDraw()
@@ -91,6 +118,7 @@ public class DrawPath : ActiveBehaviour {
     {
         if(positions.Count == 0)
         {
+            useSkillView = false;
             return;
         }
 
@@ -100,15 +128,19 @@ public class DrawPath : ActiveBehaviour {
             tweenerMove = null;
             MoveLine();
         }).SetEase(Ease.Linear);
-        tweenerRotate = transform.DOLookAt(positions[0], Vector3.Distance(transform.position, positions[0]) / (speed * 2)).OnComplete(() =>
+        if (!useSkillView)
         {
-            tweenerRotate = null;
-        });
+            tweenerRotate = transform.DOLookAt(positions[0], Vector3.Distance(transform.position, positions[0]) / (speed * 2)).OnComplete(() =>
+            {
+                tweenerRotate = null;
+            });
+        }
     }
 
     private void OnMouseDown()
     {
         canDraw = true;
+        isSkillView = false;
         if (tweenerMove != null)
         {
             tweenerMove.Kill();
@@ -127,7 +159,7 @@ public class DrawPath : ActiveBehaviour {
             if(isPause && tweenerMove.IsPlaying())
             {
                 tweenerMove.Pause();
-            }else if(!isPause && !tweenerMove.IsPlaying())
+            }else if(!isPause && !tweenerMove.IsPlaying() && !isSkillView)
             {
                 tweenerMove.Play();
             }
@@ -154,7 +186,16 @@ public class DrawPath : ActiveBehaviour {
         }
         else if (collision.gameObject.name.Contains("SkillSphere"))
         {
-            playerController.UseSkill(2);
+            var id_s = Regex.Matches(collision.gameObject.name, "[0-9]");
+            int temp = 0;
+            string tempS = "";
+            foreach(Match m in id_s)
+            {
+                tempS = m.Value;
+            }
+            temp = int.Parse(tempS);
+            Debug.Log("skill " + temp);
+            playerController.UseSkill(temp);
             Destroy(collision.gameObject);
         }
     }
@@ -166,5 +207,10 @@ public class DrawPath : ActiveBehaviour {
             tweenerRotate.Kill();
             tweenerRotate = null;
         }
+        if(tweenerMove != null && tweenerMove.IsPlaying())
+        {
+            tweenerMove.Pause();
+        }
+        isSkillView = true;
     }
 }
