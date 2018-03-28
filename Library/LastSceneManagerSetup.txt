@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/RTS_Camera/TestingBalad.unity
+=======
+- path: Assets/Scene/UIFlowTest.unity
+>>>>>>> Stephane
   isLoaded: 1
   isActive: 1
