@@ -192,24 +192,53 @@ public class PlayerController : ActiveBehaviour {
     {
         canvasSkill.SetActive(false);
         var s = Instantiate(skillsSphere[id], posSkill, Quaternion.identity);
+        if(id == 1)
+        {
+            StartCoroutine(targetMortier());
+        }
     }
 
     public void UseSkill(int id)
     {
+        playerDrawPath.skillWeapon = id;
         switch (id)
         {
-            case 0:
+            case 0: //deplacement
                 skills[id].DynamicInvoke(playerDrawPath);
                 break;
-            case 1:
-                skills[id].DynamicInvoke(Vector3.zero);
+            case 1: //mortier
+                StartCoroutine(playerDrawPath.SkillAttack(skills[id]));
+                //skills[id].DynamicInvoke(Vector3.zero);
                 break;
-            case 2:
-                skills[id].DynamicInvoke(transform.position);
+            case 2: //mine
+                //skills[id].DynamicInvoke(transform.position);
+                StartCoroutine(playerDrawPath.SkillAttack(skills[id]));
                 break;
             case 3:
                 //skills[id].DynamicInvoke();
                 break;
         }
+    }
+
+    private IEnumerator targetMortier()
+    {
+        playerDrawPath.skillWeapon = 1;
+        playerDrawPath.PauseDeguelasse(true);
+        yield return new WaitUntil(() =>
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray rayPos = playerDrawPath.cameraDraw.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(rayPos, out hit))
+                {
+                    playerDrawPath.posMortier = hit.point;
+                    playerDrawPath.skillWeapon = 0;
+                    playerDrawPath.PauseDeguelasse(false);
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 }

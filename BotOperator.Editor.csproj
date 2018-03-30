@@ -315,6 +315,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="BotOperator.Plugins.csproj">
+      <Project>{0ED35CB0-96D7-83DB-04F4-910C61D3A566}</Project>
+      <Name>BotOperator.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="BotOperator.csproj">
       <Project>{0109AC9B-34B9-E5E1-8094-1C9A98876E4C}</Project>
       <Name>BotOperator</Name>
@@ -472,6 +476,11 @@
     <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
+    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
