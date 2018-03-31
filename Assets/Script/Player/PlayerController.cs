@@ -41,6 +41,7 @@ public class PlayerController : ActiveBehaviour {
     public GameObject canvasSkill;
     public GameObject[] skillsSphere;
     private Vector3 posSkill;
+    public GameObject targetMortier;
 
     private List<Delegate> skills;
 
@@ -194,7 +195,7 @@ public class PlayerController : ActiveBehaviour {
         var s = Instantiate(skillsSphere[id], posSkill, Quaternion.identity);
         if(id == 1)
         {
-            StartCoroutine(targetMortier());
+            StartCoroutine(TargetMortier());
         }
     }
 
@@ -220,7 +221,7 @@ public class PlayerController : ActiveBehaviour {
         }
     }
 
-    private IEnumerator targetMortier()
+    private IEnumerator TargetMortier()
     {
         playerDrawPath.skillWeapon = 1;
         playerDrawPath.PauseDeguelasse(true);
@@ -232,7 +233,7 @@ public class PlayerController : ActiveBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(rayPos, out hit))
                 {
-                    playerDrawPath.posMortier = hit.point;
+                    playerDrawPath.posMortier = Instantiate(targetMortier, hit.point, Quaternion.identity);
                     playerDrawPath.skillWeapon = 0;
                     playerDrawPath.PauseDeguelasse(false);
                     return true;

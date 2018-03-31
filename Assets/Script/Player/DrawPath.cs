@@ -21,14 +21,14 @@ public class DrawPath : ActiveBehaviour {
     private Tweener tweenerSkillView = null;
     public int skillWeapon { get; set; }
     public float delaySkillAttack = 1;
-    public Vector3 posMortier { get; set; }
+    public GameObject posMortier { get; set; }
     public GameObject mortier;
     public LineRenderer line;
 
     protected void Awake()
     {
         positions = new List<Vector3>();
-        line = GetComponent<LineRenderer>();
+        line = GetComponentInChildren<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -251,7 +251,8 @@ public class DrawPath : ActiveBehaviour {
             var mor = Instantiate(mortier, transform.position + transform.forward * 2, Quaternion.identity);
             Destroy(mor, 0.5f);
             yield return new WaitForSeconds(delaySkillAttack);
-            ((Delegate)parameter[0]).DynamicInvoke(posMortier);
+            ((Delegate)parameter[0]).DynamicInvoke(posMortier.transform.position);
+            Destroy(posMortier);
             skillWeapon = 0;
             PauseTweener(false);
         }
