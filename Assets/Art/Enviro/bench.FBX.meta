@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: d5a7349bceaa289449e725a751e58a90
+timeCreated: 1522531686
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: armrest_left_low
+    100002: armrest_right_low
+    100004: backmat_left_low
+    100006: backmat_right_low
+    100008: backsupport_left_low
+    100010: backsupport_right_low
+    100012: //RootNode
+    100014: bench_base_low
+    100016: biglink_left_low
+    100018: biglink_right_low
+    100020: buttmat_low
+    100022: innerfoot_left_low
+    100024: innerfoot_right_low
+    100026: outerfoot_left_low
+    100028: outerfoot_right_low
+    100030: smallin_left_low
+    100032: smallin_right_low
+    100034: smallout_left_low
+    100036: smallout_right_low
+    400000: armrest_left_low
+    400002: armrest_right_low
+    400004: backmat_left_low
+    400006: backmat_right_low
+    400008: backsupport_left_low
+    400010: backsupport_right_low
+    400012: //RootNode
+    400014: bench_base_low
+    400016: biglink_left_low
+    400018: biglink_right_low
+    400020: buttmat_low
+    400022: innerfoot_left_low
+    400024: innerfoot_right_low
+    400026: outerfoot_left_low
+    400028: outerfoot_right_low
+    400030: smallin_left_low
+    400032: smallin_right_low
+    400034: smallout_left_low
+    400036: smallout_right_low
+    2100000: 01 - Default
+    2300000: armrest_left_low
+    2300002: armrest_right_low
+    2300004: backmat_left_low
+    2300006: backmat_right_low
+    2300008: backsupport_left_low
+    2300010: backsupport_right_low
+    2300012: bench_base_low
+    2300014: biglink_left_low
+    2300016: biglink_right_low
+    2300018: buttmat_low
+    2300020: innerfoot_left_low
+    2300022: innerfoot_right_low
+    2300024: outerfoot_left_low
+    2300026: outerfoot_right_low
+    2300028: smallin_left_low
+    2300030: smallin_right_low
+    2300032: smallout_left_low
+    2300034: smallout_right_low
+    3300000: armrest_left_low
+    3300002: armrest_right_low
+    3300004: backmat_left_low
+    3300006: backmat_right_low
+    3300008: backsupport_left_low
+    3300010: backsupport_right_low
+    3300012: bench_base_low
+    3300014: biglink_left_low
+    3300016: biglink_right_low
+    3300018: buttmat_low
+    3300020: innerfoot_left_low
+    3300022: innerfoot_right_low
+    3300024: outerfoot_left_low
+    3300026: outerfoot_right_low
+    3300028: smallin_left_low
+    3300030: smallin_right_low
+    3300032: smallout_left_low
+    3300034: smallout_right_low
+    4300000: bench_base_low
+    4300002: outerfoot_left_low
+    4300004: outerfoot_right_low
+    4300006: smallin_left_low
+    4300008: smallin_right_low
+    4300010: smallout_left_low
+    4300012: smallout_right_low
+    4300014: innerfoot_right_low
+    4300016: innerfoot_left_low
+    4300018: buttmat_low
+    4300020: biglink_right_low
+    4300022: biglink_left_low
+    4300024: backsupport_right_low
+    4300026: backsupport_left_low
+    4300028: backmat_right_low
+    4300030: backmat_left_low
+    4300032: armrest_right_low
+    4300034: armrest_left_low
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: b41817a4a5634684fb3f2a84cf9885e1
+timeCreated: 1522531685
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bin_1_low
+    100002: body_low
+    100004: door_panels_low
+    100006: foot_pedals_low
+    100008: metal_fronts_low
+    100010: panels_low
+    100012: pedal_arms_low
+    100014: pedal_axis_low
+    100016: pedal_sides_low
+    100018: pedal_stop_low
+    100020: screens_low
+    100022: top_door_panels_low
+    100024: //RootNode
+    400000: bin_1_low
+    400002: body_low
+    400004: door_panels_low
+    400006: foot_pedals_low
+    400008: metal_fronts_low
+    400010: panels_low
+    400012: pedal_arms_low
+    400014: pedal_axis_low
+    400016: pedal_sides_low
+    400018: pedal_stop_low
+    400020: screens_low
+    400022: top_door_panels_low
+    400024: //RootNode
+    2100000: Unwrap Texture Checker Material
+    2300000: bin_1_low
+    2300002: body_low
+    2300004: door_panels_low
+    2300006: foot_pedals_low
+    2300008: metal_fronts_low
+    2300010: panels_low
+    2300012: pedal_arms_low
+    2300014: pedal_axis_low
+    2300016: pedal_sides_low
+    2300018: pedal_stop_low
+    2300020: screens_low
+    2300022: top_door_panels_low
+    3300000: bin_1_low
+    3300002: body_low
+    3300004: door_panels_low
+    3300006: foot_pedals_low
+    3300008: metal_fronts_low
+    3300010: panels_low
+    3300012: pedal_arms_low
+    3300014: pedal_axis_low
+    3300016: pedal_sides_low
+    3300018: pedal_stop_low
+    3300020: screens_low
+    3300022: top_door_panels_low
+    4300000: metal_fronts_low
+    4300002: foot_pedals_low
+    4300004: door_panels_low
+    4300006: body_low
+    4300008: bin_1_low
+    4300010: panels_low
+    4300012: pedal_arms_low
+    4300014: pedal_axis_low
+    4300016: pedal_sides_low
+    4300018: pedal_stop_low
+    4300020: screens_low
+    4300022: top_door_panels_low
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
