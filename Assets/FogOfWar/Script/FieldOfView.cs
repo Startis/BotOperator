@@ -19,8 +19,8 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    [HideInInspector]
-    public List<Transform> visibleTargets = new List<Transform>();
+    /*[HideInInspector]
+    public List<Transform> visibleTargets = new List<Transform>();*/
 
     public int meshResolution;
     public int edgeResolveIterations;
@@ -69,7 +69,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        visibleTargets.Clear();
+        //visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
@@ -82,12 +82,12 @@ public class FieldOfView : MonoBehaviour
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    visibleTargets.Add(target);
+                    GameManager.visibleTargets.Add(target);
                 }
             }
         }
 
-        if (OnTargetsVisibilityChange != null) OnTargetsVisibilityChange(visibleTargets);
+        if (OnTargetsVisibilityChange != null) OnTargetsVisibilityChange(GameManager.visibleTargets);
     }
 
     void DrawFieldOfView()
