@@ -18,12 +18,12 @@ public class DrawPath : ActiveBehaviour {
     private bool isSkillView = false, useSkillView = false;
     public float delaySkillView = 0.5f;
     private Tweener tweenerSkillView = null;
-    //private LineRenderer line;
+    private LineRenderer line;
 
     protected void Awake()
     {
         positions = new List<Vector3>();
-        //line = GetComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -39,6 +39,11 @@ public class DrawPath : ActiveBehaviour {
             Debug.DrawRay(positions[i], positions[i + 1] - positions[i], Color.red);
         }
 
+		line.positionCount = positions.Count + 1;
+		line.SetPosition (0, transform.position);
+		for(int i = 0; i < positions.Count; i++){
+			line.SetPosition (i + 1, positions [i]);
+		}
 
         DrawPathMove();
         base.Update();

@@ -51,11 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraMovement.cs" />
-     <Compile Include="Assets\changetext.cs" />
+     <Compile Include="Assets\activeWallpaper.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-     <Compile Include="Assets\DragAndDrop.cs" />
      <Compile Include="Assets\FogOfWar\Script\EditorButtonAttribute.cs" />
      <Compile Include="Assets\FogOfWar\Script\FieldOfView.cs" />
      <Compile Include="Assets\FogOfWar\Script\FogCoverable.cs" />
@@ -119,7 +117,6 @@
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
-     <Compile Include="Assets\presmanager.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -130,11 +127,15 @@
      <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
      <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
      <Compile Include="Assets\Script\ActiveBehaviour.cs" />
+     <Compile Include="Assets\Script\CameraMovement.cs" />
+     <Compile Include="Assets\Script\changetext.cs" />
+     <Compile Include="Assets\Script\DragAndDrop.cs" />
      <Compile Include="Assets\Script\Enemy\AbstractEnemy.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyPatrol.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyTurret.cs" />
      <Compile Include="Assets\Script\Enemy\Shot.cs" />
      <Compile Include="Assets\Script\Enemy\ViewEnemy.cs" />
+     <Compile Include="Assets\Script\laodProto.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\Manager\PlayerManager.cs" />
      <Compile Include="Assets\Script\Mine.cs" />
@@ -144,6 +145,7 @@
      <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
      <Compile Include="Assets\Script\Player\PlayerUI.cs" />
      <Compile Include="Assets\Script\Player\ViewPlayer.cs" />
+     <Compile Include="Assets\Script\presmanager.cs" />
      <Compile Include="Assets\Script\UnityExtender.cs" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
