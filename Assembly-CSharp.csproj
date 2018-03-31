@@ -135,6 +135,7 @@
      <Compile Include="Assets\Script\Enemy\EnemyTurret.cs" />
      <Compile Include="Assets\Script\Enemy\Shot.cs" />
      <Compile Include="Assets\Script\Enemy\ViewEnemy.cs" />
+     <Compile Include="Assets\Script\Explosion.cs" />
      <Compile Include="Assets\Script\laodProto.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\Manager\PlayerManager.cs" />
@@ -337,6 +338,10 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/s.debank/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{C9E4E77A-44BD-BD0C-A54C-F656B8441A4D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

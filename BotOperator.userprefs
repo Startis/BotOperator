@@ -1,10 +1,11 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="BotOperator.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\changetext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\activeWallpaper.cs">
     <Files>
-      <File FileName="Assets\DragAndDrop.cs" Line="1" Column="1" />
-      <File FileName="Assets\presmanager.cs" Line="1" Column="1" />
-      <File FileName="Assets\changetext.cs" Line="18" Column="50" />
+      <File FileName="Assets\FogOfWar\Script\FogCoverable.cs" Line="1" Column="1" />
+      <File FileName="Assets\FogOfWar\Script\FieldOfView.cs" Line="70" Column="14" />
+      <File FileName="Assets\Script\presmanager.cs" Line="4" Column="1" />
+      <File FileName="Assets\activeWallpaper.cs" Line="15" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
