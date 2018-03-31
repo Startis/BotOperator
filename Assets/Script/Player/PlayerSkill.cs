@@ -14,7 +14,6 @@ public class PlayerSkill : MonoBehaviour {
 
     //for mortier
     public GameObject prefAmmoMortier;
-
     //for mine
     public GameObject prefMine;
 
@@ -27,8 +26,8 @@ public class PlayerSkill : MonoBehaviour {
 
         Mortier mortier = delegate (Vector3 position)
         {
-            var ammo = Instantiate(prefAmmoMortier, position, Quaternion.identity);
-            Destroy(ammo);
+            var ammo = Instantiate(prefAmmoMortier, position.WithY(0), Quaternion.identity);
+            Destroy(ammo, 0.5f);
         };
 
         Mine mine = delegate (Vector3 position)

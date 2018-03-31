@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Text.RegularExpressions;
+using System;
 
 public class DrawPath : ActiveBehaviour {
 
@@ -18,12 +19,16 @@ public class DrawPath : ActiveBehaviour {
     private bool isSkillView = false, useSkillView = false;
     public float delaySkillView = 0.5f;
     private Tweener tweenerSkillView = null;
-    private LineRenderer line;
+    public int skillWeapon { get; set; }
+    public float delaySkillAttack = 1;
+    public GameObject posMortier { get; set; }
+    public GameObject mortier;
+    public LineRenderer line;
 
     protected void Awake()
     {
         positions = new List<Vector3>();
-        line = GetComponent<LineRenderer>();
+        line = GetComponentInChildren<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -39,11 +44,18 @@ public class DrawPath : ActiveBehaviour {
             Debug.DrawRay(positions[i], positions[i + 1] - positions[i], Color.red);
         }
 
-		line.positionCount = positions.Count + 1;
-		line.SetPosition (0, transform.position);
-		for(int i = 0; i < positions.Count; i++){
-			line.SetPosition (i + 1, positions [i]);
-		}
+        line.positionCount = positions.Count + 1;
+        line.SetPosition(0, transform.position);
+        for(int i = 0; i < positions.Count; i++)
+        {
+            line.SetPosition(i + 1, positions[i]);
+        }
+
+        if(skillWeapon == 1 || skillWeapon == 2)
+        {
+            PauseTweener(true);
+            return;
+        }
 
         DrawPathMove();
         base.Update();
@@ -144,6 +156,10 @@ public class DrawPath : ActiveBehaviour {
 
     private void OnMouseDown()
     {
+        if(skillWeapon == 1 || skillWeapon == 2)
+        {
+            return;
+        }
         canDraw = true;
         isSkillView = false;
         if (tweenerMove != null)
@@ -217,5 +233,34 @@ public class DrawPath : ActiveBehaviour {
             tweenerMove.Pause();
         }
         isSkillView = true;
+    }
+
+    public IEnumerator SkillAttack(params object[] parameter)
+    {
+        yield return new WaitForEndOfFrame();
+        if(skillWeapon == 2)
+        {
+            yield return new WaitForSeconds(delaySkillAttack);
+            ((Delegate)parameter[0]).DynamicInvoke(transform.position);
+            skillWeapon = 0;
+            PauseTweener(false);
+
+        }else if(skillWeapon == 1)
+        {
+            PauseTweener(true);
+            var mor = Instantiate(mortier, transform.position + transform.forward * 2, Quaternion.identity);
+            Destroy(mor, 0.5f);
+            yield return new WaitForSeconds(delaySkillAttack);
+            ((Delegate)parameter[0]).DynamicInvoke(posMortier.transform.position);
+            Destroy(posMortier);
+            skillWeapon = 0;
+            PauseTweener(false);
+        }
+        yield return null;
+    }
+
+    public void PauseDeguelasse(bool pause)
+    {
+        PauseTweener(pause);
     }
 }

@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour {
     public Image iconPause;
     public Sprite[] icon;
 
-	// Update is called once per frame
-	void Update () {
+    [HideInInspector]
+    public static List<Transform> visibleTargets = new List<Transform>();
+
+    // Update is called once per frame
+    void Update () {
+        visibleTargets.Clear();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Pause();
