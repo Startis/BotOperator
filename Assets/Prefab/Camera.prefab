@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1069256642958386}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 60, y: 30, z: 105}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 0
+  lastTab: 2
   movementSettingsFoldout: 0
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 0
@@ -106,24 +106,24 @@ MonoBehaviour:
   targetingSettingsFoldout: 0
   inputSettingsFoldout: 0
   useFixedUpdate: 0
-  keyboardMovementSpeed: 45
+  keyboardMovementSpeed: 60
   screenEdgeMovementSpeed: 3
   followingSpeed: 5
-  rotationSped: 3
-  panningSpeed: 10
-  mouseRotationSpeed: 10
+  rotationSped: 25
+  panningSpeed: 50
+  mouseRotationSpeed: 50
   autoHeight: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  maxHeight: 10
-  minHeight: 15
+  maxHeight: 8
+  minHeight: 20
   heightDampening: 5
-  keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 25
+  keyboardZoomingSensitivity: 35
+  scrollWheelZoomingSensitivity: 35
   limitMap: 1
-  limitX: 150
-  limitY: 150
+  limitX: 45
+  limitY: 45
   targetFollow: {fileID: 0}
   targetOffset: {x: 0, y: 0, z: 0}
   useScreenEdgeInput: 1
@@ -134,13 +134,13 @@ MonoBehaviour:
   usePanning: 1
   panningKey: 325
   useKeyboardZooming: 1
-  zoomInKey: 101
-  zoomOutKey: 113
+  zoomInKey: 120
+  zoomOutKey: 122
   useScrollwheelZooming: 1
   zoomingAxis: Mouse ScrollWheel
   useKeyboardRotation: 1
-  rotateRightKey: 120
-  rotateLeftKey: 122
+  rotateRightKey: 101
+  rotateLeftKey: 113
   useMouseRotation: 1
   mouseRotationKey: 324
 --- !u!124 &124513115474027740
