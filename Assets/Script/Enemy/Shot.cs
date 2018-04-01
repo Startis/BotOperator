@@ -15,6 +15,10 @@ public class Shot : MonoBehaviour {
     private Vector3 dir;
     private Emetteur emetteur;
 
+    public float distanceMinWeak = 2, distanceMaxWeak = 15;
+    public float ratioWeakness = 5;
+    private float timerWeakDamage;
+
     private void Update()
     {
         if (GameManager.pause)
@@ -25,6 +29,12 @@ public class Shot : MonoBehaviour {
         if(dir != null)
         {
             transform.position += dir * speed * Time.deltaTime;
+        }
+
+        timerWeakDamage += Time.deltaTime;
+		if(timerWeakDamage > (distanceMinWeak / speed) && timerWeakDamage < (distanceMaxWeak / speed) && damage > 0)
+        {
+            damage -= ratioWeakness * Time.deltaTime;
         }
     }
 
