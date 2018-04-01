@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scene/UIFlowTest.unity
     guid: d0651c330fe099e43a3ce962c6911b80
   - enabled: 1
+    path: Assets/Scene/LD.unity
+    guid: 99a6bed1773567640ac3dc2238e7d170
+  - enabled: 1
     path: Assets/RTS_Camera/TestingBalad.unity
     guid: 55561d099ed298a4b9f9334c8666f137
