@@ -45,8 +45,15 @@ public class PlayerController : ActiveBehaviour {
 
     private List<Delegate> skills;
 
+    public float angleShot = 30;
+    private float angleShotUse;
+    public float timerAngle = 5;
+
+    private bool cliqueDroit = false;
+
     private void Awake()
     {
+        angleShotUse = angleShot;
         playerUI = FindObjectOfType<PlayerUI>();
         (playerDrawPath = GetComponent<DrawPath>()).playerController = this;
         (viewPlayer = GetComponentInChildren<ViewPlayer>()).playerController = this;
@@ -113,6 +120,10 @@ public class PlayerController : ActiveBehaviour {
                         break;
                 }
             }
+            else
+            {
+                angleShotUse = angleShot;
+            }
         }
 	}
 
@@ -139,13 +150,16 @@ public class PlayerController : ActiveBehaviour {
         }
         else if(distance <= rangeShot)
         {
+            angleShotUse = Mathf.Max(0, angleShotUse - Time.deltaTime * timerAngle);
             if (!canShot)
             {
                 return;
             }
             cooldownShot = delayShot;
             var shot = Instantiate(ammo, transform.position, Quaternion.identity).GetComponent<Shot>();
-            shot.SetDirection(transform.forward, Shot.Emetteur.player);
+            Vector3 angle = transform.forward;
+            angle = Quaternion.AngleAxis(angleShotUse * UnityEngine.Random.Range(-1.0f, 1.0f), Vector3.up) * angle;
+            shot.SetDirection(angle, Shot.Emetteur.player);
             Debug.Log("Shot !");
         }
     }
@@ -173,7 +187,21 @@ public class PlayerController : ActiveBehaviour {
                 if (canvasSkill.activeInHierarchy)
                 {
                     canvasSkill.SetActive(false);
+                    cliqueDroit = false;
                 }
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray rayPos = playerDrawPath.cameraDraw.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(rayPos, out hit) && ReferenceEquals(hit.transform.gameObject, gameObject)) {
+                posSkill = transform.position.WithY(1.583333f);
+                canvasSkill.transform.position = posSkill;
+                canvasSkill.SetActive(true);
+                cliqueDroit = true;
+                playerUI.ChangeRobotState(id, agressiveState);
+                playerUI.sliderHp.value = life;
             }
         }
     }
@@ -192,11 +220,18 @@ public class PlayerController : ActiveBehaviour {
     public void SkillInstanciate(int id)
     {
         canvasSkill.SetActive(false);
-        var s = Instantiate(skillsSphere[id], posSkill, Quaternion.identity);
         if(id == 1)
         {
             StartCoroutine(TargetMortier());
+        }else if (cliqueDroit && id != 1)
+        {
+            cliqueDroit = false;
+            UseSkill(id);
+            return;
         }
+
+        if(!cliqueDroit)
+            Instantiate(skillsSphere[id], posSkill, Quaternion.identity);
     }
 
     public void UseSkill(int id)
@@ -236,6 +271,11 @@ public class PlayerController : ActiveBehaviour {
                     playerDrawPath.posMortier = Instantiate(targetMortier, hit.point, Quaternion.identity);
                     playerDrawPath.skillWeapon = 0;
                     playerDrawPath.PauseDeguelasse(false);
+                    if (cliqueDroit)
+                    {
+                        cliqueDroit = false;
+                        UseSkill(1);
+                    }
                     return true;
                 }
             }

@@ -112,7 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  damage: 2
+  damage: 20
+  distanceMinWeak: 2
+  distanceMaxWeak: 20
+  ratioWeakness: 5
 --- !u!135 &135439784211775098
 SphereCollider:
   m_ObjectHideFlags: 1
