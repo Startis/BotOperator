@@ -32,7 +32,7 @@ public class Shot : MonoBehaviour {
         }
 
         timerWeakDamage += Time.deltaTime;
-        if(timerWeakDamage > (distanceMinWeak / speed) && timerWeakDamage < (distanceMaxWeak / speed))
+		if(timerWeakDamage > (distanceMinWeak / speed) && timerWeakDamage < (distanceMaxWeak / speed) && damage > 0)
         {
             damage -= ratioWeakness * Time.deltaTime;
         }
