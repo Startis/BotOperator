@@ -24,11 +24,25 @@ public class DrawPath : ActiveBehaviour {
     public GameObject posMortier { get; set; }
     public GameObject mortier;
     public LineRenderer line;
+	public float speedShield = 3;
+	public bool isShield { get; set;}
+	public GameObject[] animationShield;
+
+	public float viewUp = 15;
+	public float viewSpeed = 5;
+	private float saveView;
+	private Tween saveTween = null;
+	private LayerMask saveOb;
+	public float delayView = 10;
 
     protected void Awake()
     {
+		isShield = false;
         positions = new List<Vector3>();
         line = GetComponentInChildren<LineRenderer>();
+
+		saveView = GetComponent<FieldOfView> ().viewRadius;
+		saveOb = GetComponent<FieldOfView> ().obstacleMask;
     }
 
     // Update is called once per frame
@@ -74,8 +88,8 @@ public class DrawPath : ActiveBehaviour {
                     switch (hit.collider.tag)
                     {
                         case "Ground":
-                            if(positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.583333f), positions[positions.Count - 1]) > 0.3f)
-                                positions.Add(hit.point.WithY(1.5f));
+                            if(positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.0f), positions[positions.Count - 1]) > 0.3f)
+                                positions.Add(hit.point.WithY(1.0f));
                             break;
                         case "Wall":
                             LeftConditionDraw();
@@ -83,8 +97,8 @@ public class DrawPath : ActiveBehaviour {
                         case "Destructible":
                             if(tag == "Player_Strong")
                             {
-                                if (positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.583333f), positions[positions.Count - 1]) > 0.3f)
-                                    positions.Add(hit.point.WithY(1.5f));
+                                if (positions.Count == 0 || Vector3.Distance(hit.point.WithY(1.0f), positions[positions.Count - 1]) > 0.3f)
+                                    positions.Add(hit.point.WithY(1.0f));
                             }
                             else
                             {
@@ -139,7 +153,7 @@ public class DrawPath : ActiveBehaviour {
             return;
         }
 
-        tweenerMove = transform.DOMove(positions[0], Vector3.Distance(transform.position, positions[0]) / speed).OnComplete(() =>
+		tweenerMove = transform.DOMove(positions[0], Vector3.Distance(transform.position, positions[0]) / (isShield ? speedShield : speed)).OnComplete(() =>
         {
             positions.RemoveAt(0);
             tweenerMove = null;
@@ -147,7 +161,7 @@ public class DrawPath : ActiveBehaviour {
         }).SetEase(Ease.Linear);
         if (!useSkillView)
         {
-            tweenerRotate = transform.DOLookAt(positions[0], Vector3.Distance(transform.position, positions[0]) / (speed * 2)).OnComplete(() =>
+			tweenerRotate = transform.DOLookAt(positions[0], Vector3.Distance(transform.position, positions[0]) / (isShield ? speedShield * 2 : speed * 2)).OnComplete(() =>
             {
                 tweenerRotate = null;
             });
@@ -255,7 +269,28 @@ public class DrawPath : ActiveBehaviour {
             Destroy(posMortier);
             skillWeapon = 0;
             PauseTweener(false);
-        }
+		}else if(skillWeapon == 3){//perception
+			var view = GetComponent<FieldOfView> ();
+			view.viewRadius = viewUp;
+			view.obstacleMask = 0;
+			skillWeapon = 0;
+			if(saveTween != null){
+				saveTween.Kill ();
+			}
+			saveTween = DOVirtual.DelayedCall (delayView, () => {
+				saveTween = null;
+				view.viewRadius = saveView;
+				view.obstacleMask = saveOb;
+			});
+		}else if(skillWeapon == 4){//shield
+			Debug.Log ("skill shield active");
+			isShield = true;
+			if(animationShield != null && animationShield.Length == 2){
+				animationShield [0].SetActive (false);
+				animationShield [1].SetActive (true);
+			}
+			skillWeapon = 0;
+		}
         yield return null;
     }
 

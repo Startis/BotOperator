@@ -13,6 +13,8 @@ public class PlayerUI : MonoBehaviour {
     public Button pacifism, inView, agressif;
     public int currentIdPlayer { get; set; }
 
+	public Button r1, r2, r3;
+
     private void Awake()
     {
         pacifism.onClick.AddListener(delegate
@@ -38,7 +40,48 @@ public class PlayerUI : MonoBehaviour {
             inView.image.color = Color.white;
             PlayerManager.Instance.players[currentIdPlayer].agressiveState = PlayerController.AgressiveState.agressif;
         });
+
+		r1.onClick.AddListener (delegate {
+			r1.image.color = Color.red;
+			r2.image.color = Color.white;
+			r3.image.color = Color.white;
+			GameObject.Find("PlayerTest").GetComponent<PlayerController>().ChooseRobot();
+		});
+
+		r2.onClick.AddListener (delegate {
+			r2.image.color = Color.red;
+			r1.image.color = Color.white;
+			r3.image.color = Color.white;
+			GameObject.Find("PlayerTest2").GetComponent<PlayerController>().ChooseRobot();
+		});
+
+		r3.onClick.AddListener (delegate {
+			r3.image.color = Color.red;
+			r1.image.color = Color.white;
+			r2.image.color = Color.white;
+			GameObject.Find("PlayerTest3").GetComponent<PlayerController>().ChooseRobot();
+		});
     }
+
+	public void SelectRobot(int id){
+		switch(id){
+			case 0:
+			r1.image.color = Color.red;
+			r2.image.color = Color.white;
+			r3.image.color = Color.white;
+				break;
+			case 1:
+			r2.image.color = Color.red;
+			r1.image.color = Color.white;
+			r3.image.color = Color.white;
+				break;
+			case 2:
+			r3.image.color = Color.red;
+			r1.image.color = Color.white;
+			r2.image.color = Color.white;
+				break;
+		}
+	}
 
     public void ChangeRobotState(int id, PlayerController.AgressiveState agressive)
     {

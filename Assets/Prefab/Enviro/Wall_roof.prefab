@@ -39,9 +39,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4417700237223596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_roof
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 33971676122815686}
   - component: {fileID: 23438208940648486}
   - component: {fileID: 95963390414224278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}

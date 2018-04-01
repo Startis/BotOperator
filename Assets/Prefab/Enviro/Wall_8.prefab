@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4340586270747750}
   - component: {fileID: 33777877545289038}
   - component: {fileID: 23723769493724460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall_low002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33490876783046168}
   - component: {fileID: 23370159291095876}
   - component: {fileID: 95076802375429196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall_link
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4917836875659070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wall_8_windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4001156535125586}
   - component: {fileID: 33338388533308932}
   - component: {fileID: 23760814734984128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4190651628029384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_8
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

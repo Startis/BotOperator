@@ -50,6 +50,7 @@ public class PlayerController : ActiveBehaviour {
     public float timerAngle = 5;
 
     private bool cliqueDroit = false;
+	public Transform[] SpawnBall;
 
     private void Awake()
     {
@@ -129,6 +130,9 @@ public class PlayerController : ActiveBehaviour {
 
     public void TakeDamage(float damage)
     {
+		if(playerDrawPath.isShield){
+			return;
+		}
         life = Mathf.Max(0, life - damage);
         if(playerUI.currentIdPlayer == id)
             playerUI.sliderHp.value = life;
@@ -136,6 +140,9 @@ public class PlayerController : ActiveBehaviour {
 
     public void Attack()
     {
+		if(playerDrawPath.isShield){
+			return;
+		}
         AbstractEnemy enemy = enemySelected != null ? enemySelected : enemyAggro;
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
         if (distance <= rangePunch)
@@ -156,8 +163,9 @@ public class PlayerController : ActiveBehaviour {
                 return;
             }
             cooldownShot = delayShot;
-            var shot = Instantiate(ammo, transform.position, Quaternion.identity).GetComponent<Shot>();
-            Vector3 angle = transform.forward;
+			var t = SpawnBall [UnityEngine.Random.Range (0, SpawnBall.Length)];
+            var shot = Instantiate(ammo, t.position, Quaternion.identity).GetComponent<Shot>();
+			Vector3 angle = Vector3.Normalize(enemy.transform.position - t.position);
             angle = Quaternion.AngleAxis(angleShotUse * UnityEngine.Random.Range(-1.0f, 1.0f), Vector3.up) * angle;
             shot.SetDirection(angle, Shot.Emetteur.player);
             Debug.Log("Shot !");
@@ -202,6 +210,7 @@ public class PlayerController : ActiveBehaviour {
                 cliqueDroit = true;
                 playerUI.ChangeRobotState(id, agressiveState);
                 playerUI.sliderHp.value = life;
+				playerUI.SelectRobot (id);
             }
         }
     }
@@ -215,15 +224,22 @@ public class PlayerController : ActiveBehaviour {
     {
         playerUI.ChangeRobotState(id, agressiveState);
         playerUI.sliderHp.value = life;
+		playerUI.SelectRobot (id);
     }
+
+	public void ChooseRobot(){
+		playerUI.ChangeRobotState(id, agressiveState);
+		playerUI.sliderHp.value = life;
+		playerUI.SelectRobot (id);
+	}
 
     public void SkillInstanciate(int id)
     {
         canvasSkill.SetActive(false);
-        if(id == 1)
+		if(id == 1 && this.id == 2)
         {
             StartCoroutine(TargetMortier());
-        }else if (cliqueDroit && id != 1)
+		}else if (cliqueDroit && (id != 1 || this.id != 2))
         {
             cliqueDroit = false;
             UseSkill(id);
@@ -243,7 +259,21 @@ public class PlayerController : ActiveBehaviour {
                 skills[id].DynamicInvoke(playerDrawPath);
                 break;
             case 1: //mortier
-                StartCoroutine(playerDrawPath.SkillAttack(skills[id]));
+				switch(this.id){
+					case 0:
+						playerDrawPath.skillWeapon = 4;
+						StartCoroutine(playerDrawPath.SkillAttack(skills[4]));
+						break;
+			case 1:
+				Debug.Log ("Viewwwwwwwww!!!");
+				playerDrawPath.skillWeapon = 3;
+					StartCoroutine(playerDrawPath.SkillAttack(skills[3]));
+					break;
+				case 2:
+					StartCoroutine(playerDrawPath.SkillAttack(skills[id]));
+					break;
+				}
+
                 //skills[id].DynamicInvoke(Vector3.zero);
                 break;
             case 2: //mine

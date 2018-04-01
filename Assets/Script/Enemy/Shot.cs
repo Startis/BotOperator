@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Shot : MonoBehaviour {
 
     public enum Emetteur
@@ -18,6 +20,20 @@ public class Shot : MonoBehaviour {
     public float distanceMinWeak = 2, distanceMaxWeak = 15;
     public float ratioWeakness = 5;
     private float timerWeakDamage;
+
+
+
+	private void Awake (){
+		laodProto.destroyShot += DestroySelf;
+	}
+
+	private void OnDestroy (){
+		laodProto.destroyShot -= DestroySelf;
+	}
+
+	private void DestroySelf (){
+		Destroy (gameObject);
+	}
 
     private void Update()
     {

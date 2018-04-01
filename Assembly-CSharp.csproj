@@ -149,6 +149,7 @@
      <Compile Include="Assets\Script\Player\ViewPlayer.cs" />
      <Compile Include="Assets\Script\presmanager.cs" />
      <Compile Include="Assets\Script\UnityExtender.cs" />
+     <Compile Include="Assets\scriptOnEnter.cs" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\FogOfWar\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

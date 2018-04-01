@@ -1,12 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\lightflicker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Player\PlayerController.cs">
     <Files>
-      <File FileName="Assets\FogOfWar\Script\FogCoverable.cs" Line="1" Column="1" />
-      <File FileName="Assets\FogOfWar\Script\FieldOfView.cs" Line="1" Column="1" />
+      <File FileName="Assets\FogOfWar\Script\FogCoverable.cs" Line="19" Column="27" />
+      <File FileName="Assets\FogOfWar\Script\FieldOfView.cs" Line="34" Column="75" />
       <File FileName="Assets\Script\presmanager.cs" Line="1" Column="1" />
       <File FileName="Assets\activeWallpaper.cs" Line="1" Column="1" />
-      <File FileName="Assets\lightflicker.cs" Line="24" Column="3" />
+      <File FileName="Assets\Script\Enemy\Shot.cs" Line="31" Column="26" />
+      <File FileName="Assets\FogOfWar\Editor\FieldOfViewEditor.cs" Line="20" Column="70" />
+      <File FileName="Assets\scriptOnEnter.cs" Line="25" Column="24" />
+      <File FileName="Assets\Script\Player\DrawPath.cs" Line="280" Column="48" />
+      <File FileName="Assets\Script\Player\PlayerController.cs" Line="242" Column="49" />
+      <File FileName="Assets\Script\Player\PlayerUI.cs" Line="81" Column="33" />
+      <File FileName="Assets\Script\laodProto.cs" Line="15" Column="1" />
+      <File FileName="Assets\Script\Enemy\AbstractEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Player\PlayerSkill.cs" Line="45" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

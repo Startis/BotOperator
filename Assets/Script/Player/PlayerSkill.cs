@@ -11,6 +11,7 @@ public class PlayerSkill : MonoBehaviour {
     private delegate void Mortier(Vector3 position);
     private delegate void Mine(Vector3 position);
     private delegate void Perception(FieldOfView viewPlayer);
+	private delegate void Shield();
 
     //for mortier
     public GameObject prefAmmoMortier;
@@ -40,11 +41,16 @@ public class PlayerSkill : MonoBehaviour {
 
         };
 
+		Shield shield = delegate () {
+			
+		};
+
 
         skills = new List<Delegate>();
         skills.Add(fixedView);
         skills.Add(mortier);
         skills.Add(mine);
         skills.Add(perception);
+		skills.Add (shield);
     }
 }

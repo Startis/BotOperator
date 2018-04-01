@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33498571347845688}
   - component: {fileID: 23705086067143228}
   - component: {fileID: 95195486533400700}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: grillage_dommage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,9 +37,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4539515262548266}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grillage_02
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,9 +57,9 @@ GameObject:
   - component: {fileID: 33861128187692562}
   - component: {fileID: 114577355255999668}
   - component: {fileID: 64884836353808882}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
