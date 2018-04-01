@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb98ecc439e4ff41a1f9e0a9fef9749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 2
+  speed: 30
+  damage: 1.5
   distanceMinWeak: 25
   distanceMaxWeak: 45
   ratioWeakness: 2

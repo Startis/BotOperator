@@ -156,21 +156,21 @@ public class PlayerController : ActiveBehaviour {
             Debug.Log("Punch !!!");
         }
         else if(distance <= rangeShot)
-        {
-            angleShotUse = Mathf.Max(0, angleShotUse - Time.deltaTime * timerAngle);
-            if (!canShot)
-            {
-                return;
-            }
-            cooldownShot = delayShot;
+		{
+			angleShotUse = Mathf.Max (0, angleShotUse - Time.deltaTime * timerAngle);
+			if (!canShot) {
+				return;
+			}
+			cooldownShot = delayShot;
 			var t = SpawnBall [UnityEngine.Random.Range (0, SpawnBall.Length)];
-            var shot = Instantiate(ammo, t.position, Quaternion.identity).GetComponent<Shot>();
-			Vector3 angle = Vector3.Normalize(enemy.transform.position - t.position);
-            angle = Quaternion.AngleAxis(angleShotUse * UnityEngine.Random.Range(-1.0f, 1.0f), Vector3.up) * angle;
-            shot.SetDirection(angle, Shot.Emetteur.player);
-            Debug.Log("Shot !");
-        }
-    }
+			var shot = Instantiate (ammo, t.position, Quaternion.identity).GetComponent<Shot> ();
+			Vector3 angle = Vector3.Normalize (enemy.transform.position - t.position);
+			angle = Quaternion.AngleAxis (angleShotUse * UnityEngine.Random.Range (-1.0f, 1.0f), Vector3.up) * angle;
+			shot.SetDirection (angle, Shot.Emetteur.player);
+			Debug.Log ("Shot !");
+
+  		}
+	}
 
     private void Skill()
     {
