@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\logoDisplay.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\presmanager.cs">
     <Files>
       <File FileName="Assets\FogOfWar\Script\FogCoverable.cs" Line="1" Column="1" />
       <File FileName="Assets\FogOfWar\Script\FieldOfView.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\presmanager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\presmanager.cs" Line="91" Column="11" />
       <File FileName="Assets\activeWallpaper.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Enemy\Shot.cs" Line="1" Column="1" />
       <File FileName="Assets\FogOfWar\Editor\FieldOfViewEditor.cs" Line="1" Column="1" />
@@ -15,7 +15,6 @@
       <File FileName="Assets\Script\laodProto.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Enemy\AbstractEnemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Player\PlayerSkill.cs" Line="1" Column="1" />
-      <File FileName="Assets\logoDisplay.cs" Line="9" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
